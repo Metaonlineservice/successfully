@@ -1,91 +1,244 @@
-.logo{
+<!DOCTYPE html>    <html lang="en">    
+<head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>ثبت با موفقیت</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
+    <style>    
+        /* Reset and Base Styles */    
+        * {    
+            box-sizing: border-box;    
+            margin: 0;    
+            padding: 0;    
+        }    body, html {    
+        height: 100%;    
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+        display: flex;    
+        justify-content: center;    
+        align-items: center;    
+        overflow: hidden;    
+    }    
 
-width:120px;
+    /* Background Image with Overlay */    
+    .background {    
+        position: fixed;    
+        top: 0;    
+        left: 0;    
+        width: 100%;    
+        height: 100%;    
+        background: url('bag.jpg') no-repeat center center/cover;    
+        z-index: -2;    
+    }    
 
-}
+    .overlay {    
+        position: fixed;    
+        top: 0;    
+        left: 0;    
+        width: 100%;    
+        height: 100%;    
+        background: rgba(0, 0, 0, 0.6); /* Darkens the background for text readability */    
+        z-index: -1;    
+    }    
 
-h1{
+    /* Main Container */    
+    .container {    
+        text-align: center;    
+        color: #ffffff;    
+        padding: 30px;    
+        max-width: 600px;    
+        width: 90%;    
+        background: rgba(255, 255, 255, 0.1);    
+        backdrop-filter: blur(10px);    
+        -webkit-backdrop-filter: blur(10px);    
+        border-radius: 20px;    
+        border: 1px solid rgba(255, 255, 255, 0.2);    
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);    
+    }    
 
-font-size:1.8rem;
+    /* Logo Styling */    
+    .logo {    
+        max-width: 150px;    
+        height: auto;    
+        margin-bottom: 20px;    
+    }    
 
-}
+    /* Router Loading Animation */    
+    .loader-container {    
+        margin: 20px auto;    
+        width: 80px;    
+        height: 80px;    
+        position: relative;    
+    }    
 
-.message{
+    /* If you have a Loading.gif, you can replace the CSS loader below with:    
+       background: url('Loading.gif') no-repeat center/contain; */    
+    .router-loader {    
+        width: 100%;    
+        height: 100%;    
+        border: 4px solid transparent;    
+        border-top-color: #3498db;    
+        border-bottom-color: #3498db;    
+        border-radius: 50%;    
+        animation: spin 2s linear infinite;    
+    }    
 
-font-size:1.1rem;
+    .router-loader::before {    
+        content: '';    
+        position: absolute;    
+        top: 10px;    
+        left: 10px;    
+        right: 10px;    
+        bottom: 10px;    
+        border: 4px solid transparent;    
+        border-left-color: #e74c3c;    
+        border-right-color: #e74c3c;    
+        border-radius: 50%;    
+        animation: spin-reverse 1.5s linear infinite;    
+    }    
 
-}
+    .router-loader::after {    
+        content: '';    
+        position: absolute;    
+        top: 22px;    
+        left: 22px;    
+        right: 22px;    
+        bottom: 22px;    
+        border: 4px solid transparent;    
+        border-top-color: #f1c40f;    
+        border-radius: 50%;    
+        animation: spin 1s linear infinite;    
+    }    
 
-.success-circle{
+    @keyframes spin {    
+        0% { transform: rotate(0deg); }    
+        100% { transform: rotate(360deg); }    
+    }    
 
-width:90px;
+    @keyframes spin-reverse {    
+        0% { transform: rotate(0deg); }    
+        100% { transform: rotate(-360deg); }    
+    }    
 
-height:90px;
+    /* Typography */    
+    h1 {    
+        font-size: 2.5rem;    
+        margin-bottom: 15px;    
+        letter-spacing: 2px;    
+        text-transform: uppercase;    
+    }    
 
-}
+    .persian-text {    
+        font-size: 1.25rem;    
+        direction: rtl;    
+        line-height: 1.8;    
+        margin-bottom: 30px;    
+        font-weight: 300;    
+    }    
 
-.success-circle i{
+    /* Sliding WhatsApp Button */    
+    .whatsapp-btn {    
+        display: inline-flex;    
+        align-items: center;    
+        justify-content: center;    
+        background-color: #25D366;    
+        color: white;    
+        text-decoration: none;    
+        padding: 12px 30px;    
+        font-size: 1.1rem;    
+        font-weight: bold;    
+        border-radius: 50px;    
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);    
+        transition: transform 0.3s ease, background-color 0.3s ease;    
+            
+        /* Sliding animation trigger setup */    
+        transform: translateY(50px);    
+        opacity: 0;    
+        animation: slideUp 1s cubic-bezier(0.1, 1, 0.1, 1) forwards;    
+        animation-delay: 0.5s;     
+    }    
 
-font-size:48px;
+    .whatsapp-btn i {    
+        margin-right: 10px;    
+        font-size: 1.5rem;    
+    }    
 
-}
+    .whatsapp-btn:hover {    
+        background-color: #128C7E;    
+        transform: translateY(-3px) scale(1.03);    
+    }    
 
-}
+    @keyframes slideUp {    
+        to {    
+            transform: translateY(0);    
+            opacity: 1;    
+        }    
+    }    
 
+    /* Note Section */    
+    .note {    
+        margin-top: 15px;    
+        font-size: 0.85rem;    
+        color: #dddddd;    
+        font-style: italic;    
+    }    
+
+    /* Responsive Design */    
+    @media (max-width: 480px) {    
+        h1 {    
+            font-size: 2rem;    
+        }    
+        .persian-text {    
+            font-size: 1.1rem;    
+        }    
+        .container {    
+            padding: 20px;    
+            width: 95%;    
+        }    
+        .whatsapp-btn {    
+            padding: 10px 24px;    
+            font-size: 1rem;    
+        }    
+    }    
 </style>
 
-</head>
+</head>    
+<body>    <div class="background"></div>    
+<div class="overlay"></div>    
 
-<body>
+<div class="container">    
+    <img src="Logo.png" alt="Company Logo" class="logo">    
 
-<div class="background"></div>
+    <div class="loader-container">    
+        <div class="router-loader"></div>    
+    </div>    
 
-<div class="overlay"></div>
+    <h1>Coming Soon</h1>    
+    <p class="persian-text">درخواست شما با موفقیت ثبت شد </p>    
 
-<div class="container">
+    <a href="#" id="whatsappLink" class="whatsapp-btn" target="_blank">    
+        <i class="fab fa-whatsapp"></i> WhatsApp Us    
+    </a>    
+        
+    <p class="note">Clicking will open WhatsApp with a pre-filled message template.</p>    
+</div>    
 
-<img src="Logo.png" class="logo" alt="Meta Online Services">
-
-<div class="success-circle">
-<i class="fas fa-check"></i>
-</div>
-
-<h1>✅ درخواست شما با موفقیت ثبت شد</h1>
-
-<div class="message">
-از اعتماد شما سپاسگزاریم.
-</div>
-
-<div class="sub">
-تیم <strong>میتا آنلاین سرویس</strong><br>
-به زودی درخواست شما را بررسی نموده و در کوتاه‌ترین زمان ممکن از طریق واتساپ با شما تماس خواهد گرفت.
-</div>
-
-<a id="whatsappLink" class="whatsapp-btn" target="_blank">
-<i class="fab fa-whatsapp"></i>
-ارتباط از طریق واتساپ
-</a>
-
-<div class="note">
-لطفاً تا زمان تماس کارشناسان، پیام‌های واتساپ خود را بررسی نمایید.
-</div>
-
-</div>
-
-<script>
-
-document.addEventListener("DOMContentLoaded",function(){
-
-const phone="93730556547";
-
-const text="سلام، درخواست من با موفقیت ثبت شده است و منتظر تماس کارشناسان میتا آنلاین سرویس هستم.";
-
-document.getElementById("whatsappLink").href=
-`https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-
-});
-
+<script>    
+    // JavaScript to handle dynamic WhatsApp URL construction with pre-filled customer text    
+    document.addEventListener("DOMContentLoaded", function() {    
+        const phoneNumber = "93730556547";    
+        // Pre-filled note text for the customer when they open the chat    
+        const customerNote = "سلام، من از طریق سایت آمدم و تمایل به ثبت درخواست دارم.";     
+            
+        // Encode text for URL safety    
+        const encodedText = encodeURIComponent(customerNote);    
+            
+        // Generate WhatsApp link (works seamlessly on desktop and mobile)    
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;    
+            
+        // Assign link to button    
+        document.getElementById("whatsappLink").href = whatsappURL;    
+    });    
 </script>
 
-</body>
+</body>    
 </html>
