@@ -1,0 +1,91 @@
+.logo{
+
+width:120px;
+
+}
+
+h1{
+
+font-size:1.8rem;
+
+}
+
+.message{
+
+font-size:1.1rem;
+
+}
+
+.success-circle{
+
+width:90px;
+
+height:90px;
+
+}
+
+.success-circle i{
+
+font-size:48px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+<img src="Logo.png" class="logo" alt="Meta Online Services">
+
+<div class="success-circle">
+<i class="fas fa-check"></i>
+</div>
+
+<h1>✅ درخواست شما با موفقیت ثبت شد</h1>
+
+<div class="message">
+از اعتماد شما سپاسگزاریم.
+</div>
+
+<div class="sub">
+تیم <strong>میتا آنلاین سرویس</strong><br>
+به زودی درخواست شما را بررسی نموده و در کوتاه‌ترین زمان ممکن از طریق واتساپ با شما تماس خواهد گرفت.
+</div>
+
+<a id="whatsappLink" class="whatsapp-btn" target="_blank">
+<i class="fab fa-whatsapp"></i>
+ارتباط از طریق واتساپ
+</a>
+
+<div class="note">
+لطفاً تا زمان تماس کارشناسان، پیام‌های واتساپ خود را بررسی نمایید.
+</div>
+
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const phone="93730556547";
+
+const text="سلام، درخواست من با موفقیت ثبت شده است و منتظر تماس کارشناسان میتا آنلاین سرویس هستم.";
+
+document.getElementById("whatsappLink").href=
+`https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+});
+
+</script>
+
+</body>
+</html>
