@@ -9,104 +9,237 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+body,html{
+height:100%;
+font-family:Segoe UI,Tahoma,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
 }
 
-/* Background */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('bag.jpg') no-repeat center center/cover;
-    z-index: -2;
+/* BACKGROUND */
+.background{
+position:fixed;
+inset:0;
+background:url('bag.jpg') center/cover no-repeat;
+z-index:-2;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.65);
-    z-index: -1;
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.65);
+z-index:-1;
 }
 
-/* Container */
-.container {
-    text-align: center;
-    color: white;
-    padding: 30px;
-    max-width: 600px;
-    width: 90%;
-    background: rgba(255,255,255,0.10);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    animation: fadeIn 0.8s ease;
+/* CONTAINER (DESKTOP DEFAULT) */
+.container{
+text-align:center;
+color:#fff;
+padding:40px;
+width:90%;
+max-width:620px;
+background:rgba(255,255,255,.10);
+backdrop-filter:blur(12px);
+border-radius:22px;
+border:1px solid rgba(255,255,255,.2);
+box-shadow:0 10px 40px rgba(0,0,0,.35);
+animation:fadeIn .8s ease;
 }
 
-/* Logo */
-.logo {
-    max-width: 150px;
-    margin-bottom: 20px;
+/* LOGO */
+.logo{
+width:140px;
+margin-bottom:20px;
 }
 
-/* Success Icon */
-.check {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    background: #2ecc71;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pop 0.8s ease;
-    box-shadow: 0 0 25px rgba(46,204,113,0.5);
+/* CHECK ICON */
+.check{
+width:110px;
+height:110px;
+margin:0 auto 20px;
+border-radius:50%;
+background:#2ecc71;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 30px rgba(46,204,113,.5);
+animation:pop .7s ease;
 }
 
-.check i {
-    font-size: 55px;
-    color: white;
+.check i{
+font-size:55px;
+color:#fff;
 }
 
-/* Text */
-h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #6CFF7E;
+/* TEXT */
+h1{
+font-size:2rem;
+margin-bottom:15px;
+color:#6CFF7E;
 }
 
-.persian-text {
-    font-size: 1.2rem;
-    line-height: 2;
-    margin-bottom: 20px;
+.text{
+font-size:1.2rem;
+line-height:2;
+margin-bottom:20px;
 }
 
-.note {
-    font-size: 0.9rem;
-    color: #ddd;
-    margin-bottom: 25px;
+.note{
+font-size:.9rem;
+color:#ddd;
+margin-bottom:25px;
 }
 
-/* WhatsApp Button */
-.whatsapp-btn {
-    display: inline-flex;
+/* BUTTON */
+.whatsapp-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+background:#25D366;
+color:#fff;
+text-decoration:none;
+padding:12px 30px;
+border-radius:50px;
+font-weight:bold;
+transition:.3s;
+font-size:1rem;
+}
+
+.whatsapp-btn:hover{
+background:#128C7E;
+transform:scale(1.05);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes pop{
+0%{transform:scale(.3);opacity:0;}
+70%{transform:scale(1.2);}
+100%{transform:scale(1);opacity:1;}
+}
+
+/* =========================
+   📱 MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px){
+
+.container{
+width:92%;
+padding:25px;
+border-radius:18px;
+}
+
+.logo{
+width:110px;
+}
+
+.check{
+width:90px;
+height:90px;
+}
+
+.check i{
+font-size:45px;
+}
+
+h1{
+font-size:1.5rem;
+}
+
+.text{
+font-size:1rem;
+line-height:1.9;
+}
+
+.whatsapp-btn{
+width:100%;
+padding:14px;
+font-size:1rem;
+}
+
+}
+
+/* SMALL MOBILE */
+@media (max-width: 420px){
+
+.container{
+padding:20px;
+}
+
+h1{
+font-size:1.3rem;
+}
+
+.text{
+font-size:.95rem;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="overlay"></div>
+
+<div class="container">
+
+    <img src="Logo.png" class="logo" alt="logo">
+
+    <div class="check">
+        <i class="fas fa-check"></i>
+    </div>
+
+    <h1>✅ درخواست شما با موفقیت ثبت شد</h1>
+
+    <div class="text">
+        از اعتماد شما سپاسگزاریم.<br>
+        تیم میتا آنلاین سرویس به زودی با شما در ارتباط خواهد شد.
+    </div>
+
+    <div class="note">
+        لطفاً واتساپ خود را برای دریافت پیام بررسی نمایید.
+    </div>
+
+    <a id="whatsappLink" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        ارتباط در واتساپ
+    </a>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+const phone="93730556547";
+
+const msg="سلام، درخواست من با موفقیت ثبت شد و منتظر تماس تیم میتا آنلاین سرویس هستم.";
+
+document.getElementById("whatsappLink").href=
+`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+});
+</script>
+
+</body>
+</html>    display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: #25D366;
